@@ -3,27 +3,27 @@
 	?>
 	<html lang="ru">
 		<head>
-			<script src="/avia/js/OSC.js"></script>
-			<script src="/avia/js/menu.js"></script>
+			<script src="/tgc1/TGC1/js/OSC.js"></script>
+			<script src="/tgc1/TGC1/js/menu.js"></script>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
-			<link rel="stylesheet" href="/avia/css/jquery.minical.plain.css" type="text/css">
-			<link rel="stylesheet" type="text/css" href="/avia/css/style.css" />
+			<link rel="stylesheet" href="/tgc1/TGC1/css/jquery.minical.plain.css" type="text/css">
+			<link rel="stylesheet" type="text/css" href="/tgc1/TGC1/css/style.css" />
 			<!-- Bootstrap core CSS -->
-			<link href="/avia/css/bootstrap.min.css" rel="stylesheet">
+			<link href="/tgc1/TGC1/css/bootstrap.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
-    <link href="/avia/css/docs.min.css" rel="stylesheet" />
+    <link href="/tgc1/TGC1/css/docs.min.css" rel="stylesheet" />
 			
 			<!--[if lt IE 9]> 
 			<script type="text/javascript" src="./js/html5.js"></script>
 			<![endif]-->
 			<!--<script type="text/javascript" src="./js/jquery.js"></script>-->
-			<script src="/avia/js/jquery-3.1.1.js"></script>
+			<script src="/tgc1/TGC1/js/jquery-3.1.1.js"></script>
 			<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
 			
-			<script type="text/javascript" src="/avia/js/bootstrap.min.js"></script>
-			<script type="text/javascript"  src="/avia/js/myFunctions.js"></script>
-			<script type="text/javascript"  src="/avia/js/addfield.js"></script>
-			<script src="/avia/js/calender.js" type="text/javascript"></script>
+			<script type="text/javascript" src="/tgc1/TGC1/js/bootstrap.min.js"></script>
+			<script type="text/javascript"  src="/tgc1/TGC1/js/myFunctions.js"></script>
+			<script type="text/javascript"  src="/tgc1/TGC1/js/addfield.js"></script>
+			<script src="/tgc1/TGC1/js/calender.js" type="text/javascript"></script>
 <?php
 	include_once 'functions.php';
 	
@@ -40,7 +40,7 @@
 		$userstr = " ($user)";
 	}
 	else $loggedin = TRUE; //FALSE;
-	echo "<title>Avia</title>".
+	echo "<title>ТГК-1</title>".
 	"</head><body>";
 	$status=0; // Delete it later on
 	if ($loggedin)
@@ -48,7 +48,7 @@
 		if($status==0) //full access
 		{
 			echo ' <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar ">
-						<a class="navbar-brand mr-0 mr-md-2" href="/avia/" aria-label="Billing">
+						<a class="navbar-brand mr-0 mr-md-2" href="/TGC1/" aria-label="Billing">
 							<svg  class="d-block" width="36" height="36" viewbox="0 0 612 612" xmlns="http://www.w3.org/2000/svg" focusable="false"><title>Billing App</title><path fill="currentColor" d="M510 8a94.3 94.3 0 0 1 94 94v408a94.3 94.3 0 0 1-94 94H102a94.3 94.3 0 0 1-94-94V102a94.3 94.3 0 0 1 94-94h408m0-8H102C45.9 0 0 45.9 0 102v408c0 56.1 45.9 102 102 102h408c56.1 0 102-45.9 102-102V102C612 45.9 566.1 0 510 0z"/><path fill="currentColor" d="M196.77 471.5V154.43h124.15c54.27 0 91 31.64 91 79.1 0 33-24.17 63.72-54.71 69.21v1.76c43.07 5.49 70.75 35.82 70.75 78 0 55.81-40 89-107.45 89zm39.55-180.4h63.28c46.8 0 72.29-18.68 72.29-53 0-31.42-21.53-48.78-60-48.78h-75.57zm78.22 145.46c47.68 0 72.73-19.34 72.73-56s-25.93-55.37-76.46-55.37h-74.49v111.4z"/></svg>
 						</a>
 
@@ -56,67 +56,20 @@
 							<ul class="navbar-nav bd-navbar-nav flex-row">
 								<li class="nav-item dropdown">
 									<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="exchange" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-										Обмен
+										Пользователи
 									</a>
-									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="exchange">
-										<a class="dropdown-item " href="import_daily.php" title="AODB->|">Импорт</a>
-										<a class="dropdown-item " href="list_all_flights.php" title="List">Список рейсов</a>
-										<a class="dropdown-item" href="pairs_daily.php" title="|->ERP">Экспорт</a>	
+									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="users">
+										<a class="dropdown-item " href="show_users.php" title="AODB->|">Перечень</a>
+										
 									</div>
 								</li>
 								<li class="nav-item dropdown">
-									<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="services" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Услуги 
+									<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="exchange" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+										Транзакции
 									</a>
-									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="services">
-										<a class="dropdown-item " href="show_services.php">Перечень</a>
-										<a class="dropdown-item" href="create_service.php">Создать Услугу</a>
-										<a class="dropdown-item" href="show_bundles_all.php">Пакеты</a>
-										<a class="dropdown-item" href="create_bundle.php">Создать пакет</a>
-										<a class="dropdown-item" href="show_packages.php">Шаблоны</a>
-										<a class="dropdown-item" href="create_package.php">Создать шаблон</a>
-									</div>
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="discounts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Скидки 
-									</a>
-									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="discounts">
-										<a class="dropdown-item " href="show_discounts_all.php">Перечень</a>
-										<a class="dropdown-item" href="create_discount_grp.php">Создать Скидку | Группа</a>
-										<a class="dropdown-item" href="create_discount_ind.php">Создать Скидку | Клиент</a>
-										<a class="dropdown-item" href="show_conditions.php">Условия</a>
-										<a class="dropdown-item" href="create_condition.php">Создать условие</a>
-									</div>
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="clients" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Клиенты 
-									</a>
-									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="clients">
-										<a class="dropdown-item " href="show_clients.php">Перечень</a>
-										<a class="dropdown-item" href="create_client.php">Новый клиент</a>
-										<a class="dropdown-item" href="show_contracts.php">Контракты</a>
-										<a class="dropdown-item" href="create_contract.php">Создать контракт</a>
-									</div>
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="process" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Процесс
-									</a>
-									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="process">
-										<a class="dropdown-item " href="show_process_defaults.php">Рег.рейсы</a>
-										<a class="dropdown-item" href="show_operator_proc_def.php">Операторы</a>
-										<a class="dropdown-item" href="show_process_exceptions.php">Исключения</a>
-										<a class="dropdown-item" href="show_other_svs.php">Прочее</a>
-									</div>
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="other" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										Прочее
-									</a>
-									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="Other">
-										<a class="dropdown-item" href="list_flights.php">Медосмотр</a>
+									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="transactions">
+										<a class="dropdown-item " href="show_trs.php" title="List">Перечень</a>
+										
 									</div>
 								</li>
 							</ul>
