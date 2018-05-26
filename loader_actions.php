@@ -54,7 +54,7 @@ include ("header.php");
 					$insert_mysql='INSERT INTO transactions
 					(code,area) 
 					VALUES
-					("'.$trn.'","99",")'; //NEW TRANSACTION UNKNOWN
+					("'.$trn.'","99")'; //NEW TRANSACTION UNKNOWN
 								
 					$answsqlnext=mysqli_query($db_server,$insert_mysql);
 							
