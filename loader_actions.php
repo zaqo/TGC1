@@ -27,6 +27,7 @@ include ("header.php");
 			$in_=iconv('windows-1251','utf-8',$in);
 			$in__=explode(";",$in_);
 			$time_st=$in__[1]." ".$in__[3];
+			echo $time_st;
 			$usr_sap=$in__[4];
 			$terminal=$in__[5];
 			$trn=$in__[6];
@@ -47,7 +48,7 @@ include ("header.php");
 			if($row)	$trn=$row[0];
 			else echo 'NO TRANSACTION RECORD FOUND <br/>';
 	
-			$dtime = DateTime::createFromFormat("m.d.Y H:i:s", $time_st);
+			$dtime = DateTime::createFromFormat("d.m.Y H:i:s", $time_st);
 			$timestamp = $dtime->getTimestamp();
 			$transfer_mysql='INSERT INTO activity_reg
 					(user_id,trn_id,date,prog,message,terminal) 
