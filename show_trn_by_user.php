@@ -12,6 +12,8 @@ include ("header.php");
 		if(isset($_POST['who_real'])) $id	= $_POST['who_real'];
 		$date	= $_POST['from'];
 		$content="";
+		$user_flag=0;
+		$date_flag=0;
 		$date_format='%d-%m-%Y';
 		//Set up mySQL connection
 			$db_server = mysqli_connect($db_hostname, $db_username,$db_password);
@@ -30,7 +32,8 @@ include ("header.php");
 							WHERE user.id=".$id." AND DATE_FORMAT(activity_reg.date,'".$date_format."')= '".$date."'
 							ORDER by activity_reg.date ";
 					
-					
+			$user_flag=1;
+			$date_flag=1;			
 		}
 		elseif ($id)
 		{
@@ -42,6 +45,7 @@ include ("header.php");
 							LEFT JOIN func_area ON transactions.area=func_area.id
 							WHERE user.id=".$id."
 							ORDER by activity_reg.date ";
+			$user_flag=1;
 		}
 		elseif ($date)
 		{
@@ -53,6 +57,7 @@ include ("header.php");
 							LEFT JOIN func_area ON transactions.area=func_area.id
 							WHERE DATE_FORMAT(activity_reg.date,'".$date_format."')= '".$date."'
 							ORDER by activity_reg.date ";
+							$date_flag=1;
 		}
 		$rows='';
 		$counter=1;
@@ -78,7 +83,8 @@ include ("header.php");
 			
 		}
 		// Top of the table
-		
+		if(!$date_flag) $date='';
+		if(!$user_flag) $name='';
 		$content.= '<h2 class="ml-3 mr-1 mt-3">Активность пользователя '.$name.' за: '.$date.' </h2>';
 		$content.= '<div class="">';
 		$content.= '<table class="table table-striped table-hover table-sm ml-3 mr-1 mt-1">';
