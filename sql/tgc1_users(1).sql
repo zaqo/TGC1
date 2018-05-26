@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 26 2018 г., 09:45
+-- Время создания: Май 26 2018 г., 15:47
 -- Версия сервера: 10.1.31-MariaDB
 -- Версия PHP: 7.2.4
 
@@ -32,17 +32,11 @@ CREATE TABLE `activity_reg` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `trn_id` int(11) NOT NULL,
-  `date` datetime NOT NULL
+  `date` datetime NOT NULL,
+  `prog` varchar(32) DEFAULT NULL COMMENT 'Name of the program',
+  `message` varchar(128) DEFAULT NULL COMMENT 'Message of the program',
+  `terminal` varchar(24) DEFAULT NULL COMMENT 'ID of the terminal station during login'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Журнал активности пользователей в продуктивной системе';
-
---
--- Дамп данных таблицы `activity_reg`
---
-
-INSERT INTO `activity_reg` (`id`, `user_id`, `trn_id`, `date`) VALUES
-(1, 6, 6, '0000-00-00 00:00:00'),
-(2, 6, 6, '2018-04-01 12:06:39'),
-(4, 1405, 169, '2018-04-01 12:06:39');
 
 -- --------------------------------------------------------
 
@@ -70,7 +64,7 @@ INSERT INTO `func_area` (`id`, `description`) VALUES
 (8, 'Логистика'),
 (9, 'Проекты'),
 (10, 'Договора'),
-(11, 'Навигация'),
+(11, 'Навигация в системе'),
 (12, 'Безопасность'),
 (13, 'Кадры'),
 (14, 'Сообщения'),
@@ -7639,7 +7633,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `activity_reg`
 --
 ALTER TABLE `activity_reg`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `func_area`

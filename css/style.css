@@ -157,7 +157,7 @@ color: red;
 
 
 #livesearch_input{
-	width:100px;
+	width:200px;
 }
 
 .addbutton {
@@ -247,7 +247,7 @@ caption:before, caption:after {
   .search_result{
     background: #FFF;
     border: 1px #ccc solid;
-    width: 100px;
+    width: 300px;
     border-radius: 4px;
     max-height:100px;
     overflow-y:scroll;

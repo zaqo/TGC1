@@ -63,12 +63,12 @@ function addMyField () {
 
 		//AJAX SEARCH FIELD
 		
-	function showResult(str,num) {
-			//var telnum = parseInt($("#add_field_area").find("div.add:last").attr("id").slice(3));
-			//alert(num);
+	function showResult(str) {
+			//I HAVE SIMPLIFIED IT BACK TO A SINGLE INPUT
+			
 			if (str.length==0) {
-						document.getElementById("livesearch"+num).innerHTML="";
-						document.getElementById("livesearch"+num).style.border="0px";
+						document.getElementById("livesearch").innerHTML="";
+						document.getElementById("livesearch").style.border="0px";
 						return;
 			}
 			if (window.XMLHttpRequest) {
@@ -79,33 +79,36 @@ function addMyField () {
 			}
 			xmlhttp.onreadystatechange=function() {
 				if (this.readyState==4 && this.status==200) {
-						//document.getElementById("livesearch").innerHTML=this.responseText;
-						//document.getElementById("livesearch").style.border="1px solid #A5ACB2";
-						$("#livesearch"+num).html(this.responseText).fadeIn();
+						document.getElementById("livesearch").innerHTML=this.responseText;
+						document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+						$("#livesearch").html(this.responseText).fadeIn();
 				}
 			}
 		xmlhttp.open("GET","livesearch_srv.php?lead="+str,true);
 		xmlhttp.send();
-		$("#livesearch"+num).hover(function(){
-			$("#who"+num).blur(); //Убираем фокус с input
+		$("#livesearch").hover(function(){
+			$("#who").blur(); //Убираем фокус с input
 		})
     
 //При выборе результата поиска, прячем список и заносим выбранный результат в input
-		$("#livesearch"+num).on("click", "li", function(){
+		$("#livesearch").on("click", "li", function(){
 			var s_user = $(this).text();
-			$("#who"+num).val(s_user);//.attr('disabled', 'disabled'); //деактивируем input, если нужно
-			$("#livesearch"+num).fadeOut();
+			var user_id = $(this).attr('id');
+			//alert(user_id);
+			$("#who").val(s_user).attr('disabled', 'disabled');
+			$("#who_real").val(user_id);//.attr('disabled', 'disabled'); //деактивируем input, если нужно
+			$("#livesearch").fadeOut();
 		})
 	}
 	function fill()
 	{
 		var num='xxx';
 		var x=$('#livesearch_input');
-		alert(num);
-		//$('#ajax_subfield').empty().hide();
-		x.attr({value:num});
-		x.append(num);
-		//document.getElementById("livesearch_input").value=num;
+		
+		$('#ajax_subfield').empty().hide();
+		x.attr({value});
+		x.append(str);
+		document.getElementById("livesearch_input").value=num;
 		document.getElementsByClassName("ajax_subfield")[0].style.display='none';
 	}
 	
