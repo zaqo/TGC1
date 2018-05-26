@@ -48,8 +48,19 @@ include ("header.php");
 				if(!$answsqlnext) die("SELECT FROM user TABLE failed: ".mysqli_error($db_server));
 				$row = mysqli_fetch_row($answsqlnext);
 				if($row)	$trn=$row[0];
-				else echo 'NO TRANSACTION RECORD FOUND <br/>';
-	
+				else
+				{	
+					echo 'NO TRANSACTION RECORD FOUND <br/>';
+					$insert_mysql='INSERT INTO transactions
+					(code,area) 
+					VALUES
+					("'.$trn.'","99",")'; //NEW TRANSACTION UNKNOWN
+								
+					$answsqlnext=mysqli_query($db_server,$insert_mysql);
+							
+					if(!$answsqlnext) die("INSERT into TRANSACTIONS TABLE failed: ".mysqli_error($db_server));
+					$trn=mysqli_insert_id($db_server);
+				}
 				$dtime = DateTime::createFromFormat("d.m.Y H:i:s", $time_st);
 				$timestamp = $dtime->getTimestamp();
 				$transfer_mysql='INSERT INTO activity_reg
