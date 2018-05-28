@@ -21,7 +21,7 @@ include ("header.php");
 			<form class="form-inline mt-5" id="inlineForm" method="post" action="show_trn_by_user.php">
 				<div class="mb-2">
 					<div class="form-check">
-						<input type="text" class="form-control mb-2 mr-sm-2 livesearch_input" id="who" value="" name="who" autocomplete="off" onkeyup="showResult(this.value);this.select();" onclick="event.cancelBubble=true;" >
+						<input type="text" class="form-control mb-2 mr-sm-2 livesearch_input" id="who" value="" name="who" autocomplete="off" onkeyup="showResult(this.value);this.select();" onclick="event.cancelBubble=true;" required/>
 						<input type="hidden"  id="who_real" value="" name="who_real" >
 						<label  class="form-check-label" for="who">Пользователь</label>
 						<ul id="livesearch" class="search_result"></ul>
@@ -30,7 +30,7 @@ include ("header.php");
 				<div class="mb-2">
 					<div class="form-check">
 						<input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInput" value="" name="from" onfocus="this.select();lcs(this)"
-												onclick="event.cancelBubble=true;this.select();lcs(this)" >
+												onclick="event.cancelBubble=true;this.select();lcs(this)" required/>
 						<label class="form-check-label" for="inlineFormInput">Дата</label>
 					</div>
 				</div>

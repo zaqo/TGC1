@@ -1,7 +1,7 @@
 <?php
 /* 
 	TEMPLATE FOR INPUT FROM FILE 
-	INPUT: au/logs/activity.csv
+	INPUT: au/logs/trns.csv
 	OUTPUT:  activity_reg TABLE
 	(c) 2018 TGC-1 project
 */
@@ -13,7 +13,7 @@ include ("header.php");
 			If (!$db_server) die("Can not connect to a database!!".mysqli_connect_error($db_server));
 			mysqli_select_db($db_server,$db_database)or die(mysqli_error($db_server));
 		
-	$fp = fopen('./au/logs/activity.csv', 'r');
+	$fp = fopen('./au/logs/trns.csv', 'r');
 	if($fp)
 	{
 			$in='';
@@ -50,16 +50,8 @@ include ("header.php");
 				if($row)	$trn=$row[0];
 				else
 				{	
-					echo 'NO TRANSACTION RECORD FOUND <br/>';
-					$insert_mysql='INSERT INTO transactions
-					(code,area) 
-					VALUES
-					("'.$trn.'","99")'; //NEW TRANSACTION UNKNOWN
-								
-					$answsqlnext=mysqli_query($db_server,$insert_mysql);
-							
-					if(!$answsqlnext) die("INSERT into TRANSACTIONS TABLE failed: ".mysqli_error($db_server));
-					$trn=mysqli_insert_id($db_server);
+					echo 'NO TRANSACTION RECORD FOUND FOR'.$trn.' <br/>';
+					
 				}
 				$dtime = DateTime::createFromFormat("d.m.Y H:i:s", $time_st);
 				$timestamp = $dtime->getTimestamp();
