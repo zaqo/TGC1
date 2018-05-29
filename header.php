@@ -71,7 +71,7 @@
 										Транзакции
 									</a>
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="transactions">
-										<a class="dropdown-item " href="loader_actions.php" title="test">Test</a>
+										<!--<a class="dropdown-item " href="loader_actions.php" title="test">Test</a>-->
 										<a class="dropdown-item " href="show_trs.php" title="List">Перечень</a>
 										<a class="dropdown-item " href="show_trn_log.php" title="All">Отчет</a>
 										

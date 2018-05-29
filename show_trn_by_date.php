@@ -1,7 +1,7 @@
 ﻿<?php require_once 'login_tgc1.php';
 /*
 	PURPOSE: OUTPUT of transaction data for a given users on a given date
-	INPUT: date, user name (optional)
+	INPUT: user name
 	date: 26/05/18
 */
 include ("header.php"); 
@@ -24,7 +24,7 @@ include ("header.php");
 		{	
 			
 			$check_in_mysql="SELECT user.name,user.father_name,user.surname,transactions.code,activity_reg.date,
-									activity_reg.message,func_area.description
+									activity_reg.message,func_area.description,user.id,transactions.description
 							FROM activity_reg
 							LEFT JOIN user ON activity_reg.user_id=user.id
 							LEFT JOIN transactions ON activity_reg.trn_id=transactions.id
@@ -33,34 +33,39 @@ include ("header.php");
 							ORDER by activity_reg.date ";
 					
 			$user_flag=1;
-			$date_flag=1;			
+			//$date_flag=1;			
 		}
 		/*
 		elseif ($id)
 		{
 			$check_in_mysql="SELECT user.name,user.father_name,user.surname,transactions.code,activity_reg.date,
-									activity_reg.message,func_area.description
+									activity_reg.message,func_area.description,user.id,transactions.description
 							FROM activity_reg
 							LEFT JOIN user ON activity_reg.user_id=user.id
 							LEFT JOIN transactions ON activity_reg.trn_id=transactions.id
 							LEFT JOIN func_area ON transactions.area=func_area.id
 							WHERE user.id=".$id."
-							ORDER by activity_reg.date ";
+							ORDER by user.surname,activity_reg.date ";
 			$user_flag=1;
-		} */
-		else //if ($date)
+		}*/
+		else
 		{
 				$check_in_mysql="SELECT user.name,user.father_name,user.surname,transactions.code,activity_reg.date,
-									activity_reg.message,func_area.description
+									activity_reg.message,func_area.description,user.id,transactions.description
 							FROM activity_reg
 							LEFT JOIN user ON activity_reg.user_id=user.id
 							LEFT JOIN transactions ON activity_reg.trn_id=transactions.id
 							LEFT JOIN func_area ON transactions.area=func_area.id
 							WHERE DATE_FORMAT(activity_reg.date,'".$date_format."')= '".$date."'
-							ORDER by activity_reg.date ";
-							$date_flag=1;
+							ORDER by user.surname,activity_reg.date";
+				//			$date_flag=1;
 		}
-							if(!$answsqlcheck) die("LOOKUP into services TABLE failed: ".mysqli_error($db_server));
+		
+		$answsqlcheck=mysqli_query($db_server,$check_in_mysql);
+		if(!$answsqlcheck) die("LOOKUP into services TABLE failed: ".mysqli_error($db_server));
+		//var_dump($answsqlcheck);
+	if($answsqlcheck->num_rows)
+	{
 		$rows='';
 		$counter=1;
 		$rec_prev=0;
@@ -100,12 +105,13 @@ include ("header.php");
 					
 						$interval = $start->diff($last_date);
 						$total_time=$interval->format('%H : %I :%S');
-						$day_block.=' Total time: '.$total_time.'</td></tr>';
+						$day_block.=' <small><i> общее время: '.$total_time.'</i></small></td></tr>';
 	
 					$day_block.=$user_block;
 					$day_block.=$user_block_head;
 					$user_block='';
 					$start=DateTime::createFromFormat($format,$trn_date);
+					$counter=1;
 				}
 				
 				$user_block.= '<tr><td>'.$counter.'</td><td>'.$trn_time.'</td><td>'.$sap_code.'</td><td>'.$area.'</td><td>'.$tr_desc.'</td><td>'.$msg.'</td></tr>';
@@ -118,28 +124,10 @@ include ("header.php");
 		}
 		$interval = $start->diff($last_date);
 						$total_time=$interval->format('%H : %I :%S');
-						$day_block.=' Total time: '.$total_time.'</td></tr>';
+						$day_block.=' <small><i> общее время: '.$total_time.'</i></small></td></tr>';
 		$day_block.=$user_block;
-		// Top of the table
-		
-		$content.= '<h2 class="ml-3 mr-1 mt-3">Активность пользователей за сутки  </h2>';
-		$content.= '<div class="">';
-		$content.= '<table class="table table-striped table-hover table-sm ml-3 mr-1 mt-1">';
-		$content.= '<thead>';
-		$content.= '<tr><th>#</th><th>Время</th><th>Транзакция</th><th>Функц.область</th><th>Описание</th><th>Сообщение</th>
-					</tr>';
-		$content.= '<tbody>';
-		$content.= $day_block;
-		$content.= '</tbody>';
-		$content.= '</table>';
-		$content.= '</div>';
 		
 		/*
-		$rows='';
-		$counter=1;
-		$rec_prev=0;
-		$isFirst=1;
-		//echo $check_in_mysql;
 		$answsqlcheck=mysqli_query($db_server,$check_in_mysql);
 		if(!$answsqlcheck) die("LOOKUP into services TABLE failed: ".mysqli_error($db_server));
 		while( $row = mysqli_fetch_row( $answsqlcheck ))  
@@ -158,20 +146,25 @@ include ("header.php");
 			$counter+=1;
 			
 		}
+		*/
 		// Top of the table
-		if(!$date_flag) $date='';
-		if(!$user_flag) $name='';
-		$content.= '<h2 class="ml-3 mr-1 mt-3">Активность пользователя '.$name.' за: '.$date.' </h2>';
+		//if(!$date_flag) $date='';
+		//if(!$user_flag) $name='';
+		if($user_flag) $content.= '<h2 class="ml-3 mr-1 mt-3">Активность пользователя '.$name.'  </h2>';
+		else $content.= '<h2 class="ml-3 mr-1 mt-3">Активность пользователей за: '.$date.' </h2>';
 		$content.= '<div class="">';
 		$content.= '<table class="table table-striped table-hover table-sm ml-3 mr-1 mt-1">';
 		$content.= '<thead>';
 		$content.= '<tr><th>#</th><th>Время</th><th>Транзакция</th><th>Функц.область</th><th>Сообщение</th>
 					</tr>';
 		$content.= '<tbody>';
-		$content.= $rows;
+		$content.= $day_block;
 		$content.= '</tbody>';
 		$content.= '</table>';
-		$content.= '</div>';*/
+		$content.= '</div>';
+	}
+	else
+		$content.= '<div class="alert alert-primary mt-5 ml-5 mr-5" role="alert">НА ВЫБРАННУЮ ВАМИ ДАТУ  В БАЗЕ ДАННЫХ ЗАПИСЕЙ НЕ ОБНАРУЖЕНО!</div>';
 	Show_page($content);
 	mysqli_close($db_server);
 	

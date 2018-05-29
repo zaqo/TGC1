@@ -20,8 +20,8 @@ include ("header.php");
 							LEFT JOIN user ON activity_reg.user_id=user.id
 							LEFT JOIN transactions ON activity_reg.trn_id=transactions.id
 							LEFT JOIN func_area ON transactions.area=func_area.id
-							WHERE 1
-							ORDER BY user.surname, activity_reg.date ";
+							ORDER BY activity_reg.date,user.surname
+							LIMIT 300  ";
 					
 					$answsqlcheck=mysqli_query($db_server,$check_in_mysql);
 					if(!$answsqlcheck) die("LOOKUP into services TABLE failed: ".mysqli_error($db_server));
@@ -77,7 +77,7 @@ include ("header.php");
 			$last_id=$user_id;
 			$last_date=DateTime::createFromFormat($format,$trn_date);
 			$counter+=1;
-			//break;
+			//if ($counter>1000)break;
 			
 		}
 		$interval = $start->diff($last_date);
