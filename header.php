@@ -62,7 +62,7 @@
 										Пользователи
 									</a>
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="users">
-										<a class="dropdown-item " href="show_users.php" title="AODB->|">Перечень</a>
+										<a class="dropdown-item " href="show_users.php" title="Users">Перечень</a>
 										
 									</div>
 								</li>
@@ -103,111 +103,8 @@
 
   <a class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="http://localhost:8082/tgc1/TGC1/search_daily.php">Поиск</a>
 </header>';
-/*
-			echo "<div class='dropdown'>
-				<button onclick='myFunction()' class='dropbtn'>Загрузка</button>
-				<div id=\"myDropdown\" class=\"dropdown-content\">
-				<a href=\"import_daily.php\">Импорт <-| AODB</a>
-				<a href=\"pairs_daily.php\">Экспорт |-> SAP ERP</a>
-				</div>
-			</div>
-			";
-			echo "<div class='dropdown'>
-				<button onclick='myFunction2()' class='dropbtn'>Услуги</button>
-				<div id=\"myDropdown2\" class=\"dropdown-content\">
-				<a href=\"show_services.php\">Услуги</a>
-				<a href=\"create_service.php\">Создать Услугу</a>
-				<a href=\"show_bundles_all.php\">Пакеты услуг</a>
-				<a href=\"create_bundle.php\">Создать пакет</a>
-				<a href=\"check_packages.php\">Шаблоны</a>
-				<a href=\"create_package.php\">Создать шаблон</a>
-				</div>
-			</div>
-			";//<div class=\"userid\">Вы вошли в систему как: $userstr</div>
-			echo "<div class='dropdown'>
-				<button onclick='myFunction3()' class='dropbtn'>Скидки</button>
-				<div id=\"myDropdown3\" class=\"dropdown-content\">
-				<a href=\"show_discounts_all.php\">Скидки</a>
-				<a href=\"create_discount_grp.php\">Создать Скидку | Группа</a>
-				<a href=\"create_discount_ind.php\">Создать Скидку | Клиент</a>
-				<a href=\"show_conditions.php\">Условия</a>
-				<a href=\"create_condition.php\">Создать Условие</a>
-				</div>
-			</div>
-			";
-			echo "<div class='dropdown'>
-				<button onclick='myFunction4()' class='dropbtn'>Клиенты</button>
-				<div id=\"myDropdown4\" class=\"dropdown-content\">
-				
-				<a href=\"show_contracts.php\">Контракты</a>
-				<a href=\"create_contract.php\">Создать Контракт</a>
-				<a href=\"show_clients.php\">Клиенты</a>
-				<a href=\"create_client.php\">Создать Клиента</a>
-				</div>
-			</div>
-			";
-			echo "<div class='dropdown'>
-				<button onclick='myFunction5()' class='dropbtn'>Настройки</button>
-				<div id=\"myDropdown5\" class=\"dropdown-content\">
-				<a href=\"show_process_defaults.php\">Регулярные</a>
-				<a href=\"show_process_exceptions.php\">Исключения</a>
-				<a href=\"show_operator_proc_def.php\">Операторы</a>
-				<a href=\"show_other_svs.php\">Прочие</a>
-				</div>
-			</div>
-			";
-			echo "<div class='dropdown'>
-				<button onclick='myFunction6()' class='dropbtn'>Прочее</button>
-				<div id=\"myDropdown6\" class=\"dropdown-content\">
-				<a href=\"list_flights.php\">Мед.осмотр экипажа</a>
-				<a href=\"show_mus.php\">Единицы измерения</a>
-				<a href=\"create_mu.php\">Добавить ед.изм.</a>
-				</div>
-			</div>
-			";
-			echo '<hr>';
-		*/
-		}
-		/*
-		elseif($status==1)  //Shift watchers
-		{
-			echo "<div class='dropdown'>
-				<button onclick='myFunction()' class='dropbtn'>Меню</button>
-				<div id=\"myDropdown\" class=\"dropdown-content\">
-				<a href=\"start_mssql_guest.php\">График на сегодня</a>
-				<a href=\"start_mssql_yesterday_guest.php\">Отчет: ВЧЕРА</a>
-				<a href=\"start_mssql_daybeforeyesterday_guest.php\">Отчет:ПОЗАВЧЕРА</a>
-				<a href=\"pers_rec_show.php\">Данные сотрудника</a>
-				<a href=\"logout.php\">Выйти из системы</a>
-				</div>
-			</div>
-			<div class=\"userid\">Вы вошли в систему как: $userstr</div>";
-		}
-		elseif($status==2) //Shift leaders
-		{
-			echo "<div class='dropdown'>
-				<button onclick='myFunction()' class='dropbtn'>Меню</button>
-				<div id=\"myDropdown\" class=\"dropdown-content\">
-				<a href=\"start_mssql.php\">График на сегодня</a>
-				<a href=\"start_mssql_yesterday.php\">Отчет: ВЧЕРА</a>
-				<a href=\"start_mssql_daybeforeyesterday.php\">Отчет:ПОЗАВЧЕРА</a>
-				<a href=\"pers_rec_show.php\">Данные сотрудника</a>
-				<a href=\"search_by_flight.php\">Поиск по рейсу</a>
-				<a href=\"logout.php\">Выйти из системы</a>
-				</div>
-			</div>
-			<div class=\"userid\">Вы вошли в систему как: $userstr</div>";
-		}*/
+
 	}
-	/*
-	else
-	{
-		echo "<div class=\"dropdown\">
-		<button onclick=\"myFunction()\" class=\"dropbtn\">Меню</button>
-		<div id=\"myDropdown\" class=\"dropdown-content\">
-			<a href='login.php'>Вход в систему</a>
-		</div>
-		</div>";
-// Для просмотра этой страницы нужно войти на сайт
-	} */
+	
+	
 ?>
