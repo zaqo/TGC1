@@ -11,6 +11,7 @@ include ("header.php");
 		
 		if(isset($_POST['who_real'])) $id	= $_POST['who_real'];
 		if(isset($_POST['who'])) $who	= $_POST['who'];
+		else $who=0;
 		$date	= $_POST['from'];
 		$content="";
 		$user_flag=0;
@@ -31,13 +32,13 @@ include ("header.php");
 							LEFT JOIN transactions ON activity_reg.trn_id=transactions.id
 							LEFT JOIN func_area ON transactions.area=func_area.id
 							WHERE user.surname LIKE '".$who."%' AND DATE_FORMAT(activity_reg.date,'".$date_format."')= '".$date."'
-							ORDER by activity_reg.date ";
+							ORDER by user.id,activity_reg.date ";
 					
 			$user_flag=1;
 			//$date_flag=1;			
 		}
-		/*
-		elseif ($id)
+		
+		elseif ($date&&$id)
 		{
 			$check_in_mysql="SELECT user.name,user.father_name,user.surname,transactions.code,activity_reg.date,
 									activity_reg.message,func_area.description,user.id,transactions.description
@@ -45,11 +46,11 @@ include ("header.php");
 							LEFT JOIN user ON activity_reg.user_id=user.id
 							LEFT JOIN transactions ON activity_reg.trn_id=transactions.id
 							LEFT JOIN func_area ON transactions.area=func_area.id
-							WHERE user.id=".$id."
-							ORDER by user.surname,activity_reg.date ";
+							WHERE user.id=".$id." AND DATE_FORMAT(activity_reg.date,'".$date_format."')= '".$date."'
+							ORDER by user.id,activity_reg.date ";
 			$user_flag=1;
-		}*/
-		else
+		}
+		elseif($date)
 		{
 				$check_in_mysql="SELECT user.name,user.father_name,user.surname,transactions.code,activity_reg.date,
 									activity_reg.message,func_area.description,user.id,transactions.description
@@ -58,7 +59,19 @@ include ("header.php");
 							LEFT JOIN transactions ON activity_reg.trn_id=transactions.id
 							LEFT JOIN func_area ON transactions.area=func_area.id
 							WHERE DATE_FORMAT(activity_reg.date,'".$date_format."')= '".$date."'
-							ORDER by user.surname,activity_reg.date";
+							ORDER by user.id,activity_reg.date";
+				//			$date_flag=1;
+		}
+		elseif($id)
+		{
+				$check_in_mysql="SELECT user.name,user.father_name,user.surname,transactions.code,activity_reg.date,
+									activity_reg.message,func_area.description,user.id,transactions.description
+							FROM activity_reg
+							LEFT JOIN user ON activity_reg.user_id=user.id
+							LEFT JOIN transactions ON activity_reg.trn_id=transactions.id
+							LEFT JOIN func_area ON transactions.area=func_area.id
+							WHERE user.id=".$id." 
+							ORDER by activity_reg.date";
 				//			$date_flag=1;
 		}
 		
