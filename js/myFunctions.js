@@ -84,7 +84,7 @@ function addMyField () {
 						$("#livesearch").html(this.responseText).fadeIn();
 				}
 			}
-		xmlhttp.open("GET","SERVER_NAME/livesearch_srv.php?lead="+str,true);
+		xmlhttp.open("GET","livesearch_srv.php?lead="+str,true);
 		xmlhttp.send();
 		$("#livesearch").hover(function(){
 			$("#who").blur(); //Убираем фокус с input

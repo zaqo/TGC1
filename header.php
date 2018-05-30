@@ -101,7 +101,7 @@
     </li>
   </ul>
 
-  <a class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="http://localhost:8082/tgc1/TGC1/search_daily.php">Поиск</a>
+  <a class="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" href="http://172.20.19.87/prod/search_daily.php">Поиск</a>
 </header>';
 
 	}
