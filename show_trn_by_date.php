@@ -10,6 +10,7 @@ include ("header.php");
 		//var_dump($_POST);
 		
 		if(isset($_POST['who_real'])) $id	= $_POST['who_real'];
+		if(isset($_POST['who'])) $who	= $_POST['who'];
 		$date	= $_POST['from'];
 		$content="";
 		$user_flag=0;
@@ -20,7 +21,7 @@ include ("header.php");
 			$db_server->set_charset("utf8");
 			If (!$db_server) die("Can not connect to a database!!".mysqli_connect_error($db_server));
 			mysqli_select_db($db_server,$db_database)or die(mysqli_error($db_server));
-		if($date&&$id) 
+		if($date&&$who) 
 		{	
 			
 			$check_in_mysql="SELECT user.name,user.father_name,user.surname,transactions.code,activity_reg.date,
@@ -29,7 +30,7 @@ include ("header.php");
 							LEFT JOIN user ON activity_reg.user_id=user.id
 							LEFT JOIN transactions ON activity_reg.trn_id=transactions.id
 							LEFT JOIN func_area ON transactions.area=func_area.id
-							WHERE user.id=".$id." AND DATE_FORMAT(activity_reg.date,'".$date_format."')= '".$date."'
+							WHERE user.surname LIKE '".$who."%' AND DATE_FORMAT(activity_reg.date,'".$date_format."')= '".$date."'
 							ORDER by activity_reg.date ";
 					
 			$user_flag=1;
