@@ -37,7 +37,21 @@ include ("header.php");
 			$user_flag=1;
 			//$date_flag=1;			
 		}
-		
+		elseif($who) 
+		{	
+			
+			$check_in_mysql="SELECT user.name,user.father_name,user.surname,transactions.code,activity_reg.date,
+									activity_reg.message,func_area.description,user.id,transactions.description
+							FROM activity_reg
+							LEFT JOIN user ON activity_reg.user_id=user.id
+							LEFT JOIN transactions ON activity_reg.trn_id=transactions.id
+							LEFT JOIN func_area ON transactions.area=func_area.id
+							WHERE user.surname LIKE '".$who."%' 
+							ORDER by user.id,activity_reg.date ";
+					
+			$user_flag=1;
+			//$date_flag=1;			
+		}
 		elseif ($date&&$id)
 		{
 			$check_in_mysql="SELECT user.name,user.father_name,user.surname,transactions.code,activity_reg.date,
@@ -108,7 +122,7 @@ include ("header.php");
 				$area=$row[6];
 				$user_id=$row[7];
 				$tr_desc=$row[8];
-				$user_block_head='<tr><td colspan="6"><b>'.$name.' : '.$trn_date_cl.'</b>';
+				$user_block_head='<tr><td colspan="7"><b>'.$name.' : '.$trn_date_cl.'</b>';
 				if(!$last_id) // VERY FIRST ITERATION
 				{
 					$start=DateTime::createFromFormat($format,$trn_date);
@@ -169,7 +183,7 @@ include ("header.php");
 		$content.= '<div class="">';
 		$content.= '<table class="table table-striped table-hover table-sm ml-3 mr-1 mt-1">';
 		$content.= '<thead>';
-		$content.= '<tr><th>#</th><th>Время</th><th>Транзакция</th><th>Функц.область</th><th>Сообщение</th>
+		$content.= '<tr><th>#</th><th>Время</th><th>Транзакция</th><th>Функц.область</th><th>Описание</th><th>Сообщение</th>
 					</tr>';
 		$content.= '<tbody>';
 		$content.= $day_block;
