@@ -7,12 +7,9 @@
 include ("login_tgc1.php"); 
 include ("header.php"); 
 
-//if(!$loggedin) echo "<script>window.location.replace('/Agents/login.php');</script>";
+//if(!$loggedin) echo "<script>window.location.replace('/.../login.php');</script>";
 ?>
 <html lang="ru">
-	
-	 
-<script src="/avia/js/calender.js" type="text/javascript"></script>
 
 	<div class="container mt-5">
 		
