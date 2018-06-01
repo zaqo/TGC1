@@ -6,7 +6,7 @@
 			<script src="/tgc1/TGC1/js/OSC.js"></script>
 			<script src="/tgc1/TGC1/js/menu.js"></script>
 			<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
-			<link rel="stylesheet" href="/tgc1/TGC1/css/jquery.minical.plain.css" type="text/css">
+			<!--<link rel="stylesheet" href="/tgc1/TGC1/css/jquery.minical.plain.css" type="text/css">-->
 			<link rel="stylesheet" type="text/css" href="/tgc1/TGC1/css/style.css" />
 			<!-- Bootstrap core CSS -->
 			<link href="/tgc1/TGC1/css/bootstrap.min.css" rel="stylesheet">
