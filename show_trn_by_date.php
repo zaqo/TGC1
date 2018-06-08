@@ -35,7 +35,7 @@ include ("header.php");
 							ORDER by user.id,activity_reg.date ";
 					
 			$user_flag=1;
-			//$date_flag=1;			
+			$date_flag=1;			
 		}
 		elseif($who) 
 		{	
@@ -50,7 +50,7 @@ include ("header.php");
 							ORDER by user.id,activity_reg.date ";
 					
 			$user_flag=1;
-			//$date_flag=1;			
+				
 		}
 		elseif ($date&&$id)
 		{
@@ -63,6 +63,7 @@ include ("header.php");
 							WHERE user.id=".$id." AND DATE_FORMAT(activity_reg.date,'".$date_format."')= '".$date."'
 							ORDER by user.id,activity_reg.date ";
 			$user_flag=1;
+			$date_flag=1;	
 		}
 		elseif($date)
 		{
@@ -74,7 +75,7 @@ include ("header.php");
 							LEFT JOIN func_area ON transactions.area=func_area.id
 							WHERE DATE_FORMAT(activity_reg.date,'".$date_format."')= '".$date."'
 							ORDER by user.id,activity_reg.date";
-				//			$date_flag=1;
+			$date_flag=1;
 		}
 		elseif($id)
 		{
@@ -86,7 +87,7 @@ include ("header.php");
 							LEFT JOIN func_area ON transactions.area=func_area.id
 							WHERE user.id=".$id." 
 							ORDER by activity_reg.date";
-				//			$date_flag=1;
+				$user_flag=1;
 		}
 		
 		$answsqlcheck=mysqli_query($db_server,$check_in_mysql);
@@ -97,14 +98,16 @@ include ("header.php");
 		$rows='';
 		$counter=1;
 		$rec_prev=0;
-		$isFirst=1;
+		$isFirst=1; // the very first block indicator
 		$user_block='';
-		$day_block='';
 		$user_block_head='';
+		$day_block='';
+		$day_block_head='';
+		
 		$last_id=0;// Index to control switch to nex user_id
+		
 		while( $row = mysqli_fetch_row( $answsqlcheck ))  
-		{ 
-				
+		{ 	
 				$name=$row[2].' ';
 				$name.=$row[0].' ';
 				$name.=$row[1];
@@ -118,6 +121,7 @@ include ("header.php");
 				//$trn_date_cl=substr($trn_date,0,10);
 				$trn_time=$trn_date_o->format('H:i:s');
 				$trn_date_cl=$trn_date_o->format('d-m-y');
+				$trn_date_day=$trn_date_o->format('d');
 				$msg=$row[5];
 				$area=$row[6];
 				$user_id=$row[7];

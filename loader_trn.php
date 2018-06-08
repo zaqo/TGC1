@@ -5,6 +5,15 @@
 	only update transactions table and sap table (user id id SAP)
 	OUTPUT:  transactions, sap TABLE
 	(c) 2018 TGC-1 project
+	FILE STRUCTURE:
+		- DOMAIN NAME - NOT USED!	
+		- d.m.Y 
+		- H:i:s
+		- USER_ID
+		- Terminal ID
+		- TRANSACTION
+		- PROGRAM
+		- ABOUT
 */
 require_once 'login_tgc1.php';
 include ("header.php");
@@ -15,7 +24,7 @@ set_time_limit(0);
 			If (!$db_server) die("Can not connect to a database!!".mysqli_connect_error($db_server));
 			mysqli_select_db($db_server,$db_database)or die(mysqli_error($db_server));
 		
-	$fp = fopen('./au/logs/trs.csv', 'r');
+	$fp = fopen('./au/logs/act0306_good.csv', 'r');
 	if($fp)
 	{
 			$in='';
@@ -30,7 +39,8 @@ set_time_limit(0);
 				$in= fgets($fp);
 				if($in)
 				{
-					$in_=iconv('windows-1251','utf-8',$in);
+					echo $in.'</br>';
+					$in_=$in;//iconv('windows-1251','utf-8',$in);
 					$in__=explode(";",$in_);
 					$time_st=$in__[1]." ".$in__[2];
 			
@@ -64,7 +74,7 @@ set_time_limit(0);
 					$answsqlnext=mysqli_query($db_server,$insert_mysql);
 							
 					if(!$answsqlnext) die("INSERT into TRANSACTIONS TABLE failed: ".mysqli_error($db_server));
-					$trn=mysqli_insert_id($db_server);
+					//$trn=mysqli_insert_id($db_server);
 					echo 'NEW TRANSACTION RECORD CREATED:'.$trn.'<br/>';
 				}
 				
@@ -86,9 +96,9 @@ set_time_limit(0);
 										VALUES
 										("'.$user.'","'.$trn.'",FROM_UNIXTIME('.$timestamp.'),"'.$prog.'","'.$about.'","'.$terminal.'")';
 								
-							$answsql=mysqli_query($db_server,$transfer_mysql);
-							
-							if(!$answsql) die("INSERT into TABLE failed: ".mysqli_error($db_server));
+							//$answsql=mysqli_query($db_server,$transfer_mysql);
+							//echo $transfer_mysql;
+							//if(!$answsql) die("INSERT into TABLE failed: ".mysqli_error($db_server));
 						}
 					}
 					elseif (!empty($user_sap))

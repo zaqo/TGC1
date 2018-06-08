@@ -24,7 +24,7 @@ include ("header.php");
 		$content.= '<div class="">';
 		$content.= '<table class="table table-striped table-hover table-sm ml-3 mr-1 mt-1">';
 		$content.= '<thead>';
-		$content.= '<tr><th>ID</th><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>UserID</th><th>email</th>
+		$content.= '<tr><th>№</th><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>UserID</th><th>email</th>
 					</tr>';
 		$content.= '<tbody>';
 		// Iterating through the array
@@ -40,7 +40,7 @@ include ("header.php");
 				$fname=$row[3];
 				$sap_id=$row[4];
 				$email=$row[5];
-				$content.= '<tr><td>'.$rec_id.'</td><td>'.$surname.'</td><td>'.$name.'</td><td>'.$fname.'</td><td>'.$sap_id.'</td><td>'.$email.'</td></tr>';
+				$content.= '<tr><td>'.$counter.'</td><td>'.$surname.'</td><td>'.$name.'</td><td>'.$fname.'</td><td>'.$sap_id.'</td><td>'.$email.'</td></tr>';
 				
 			$counter+=1;
 			
