@@ -64,7 +64,7 @@ include ("header.php");
 				}
 			$old_rec=$rec_id;
 		}
-		
+		$content.=$content_tail;
 		$content.= '</tbody>';
 		$content.= '</table>';
 		$content.= '</div>';
