@@ -3,6 +3,12 @@
 	PURPOSE: OUTPUT of transaction data for a given users on a given date
 	INPUT: user name
 	date: 26/05/18
+	TO BE REFACTORED FOR SCENARIOS:
+	а. user (only) $user_flag
+		1. user ID
+		2. range of user surnames
+	b. date (only) $date_flag
+	c. User&Date
 */
 include ("header.php"); 
 	
