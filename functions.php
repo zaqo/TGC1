@@ -38,7 +38,7 @@ function Show_page($contents)
 							echo $contents;
 					?>
 				</body>
-				<footer><hr>All rights reserved &#169 2017 </footer>
+				<footer><hr> All rights reserved &#169 2018 </footer>
 			</html>
 <?php
 	}

@@ -6,7 +6,7 @@
 	(c) 2018 TGC-1 project
 */
 include ("header.php"); 
-	
+set_time_limit(0);	
 		
 		$content="";
 		//Set up mySQL connection
