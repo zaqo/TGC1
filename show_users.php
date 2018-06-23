@@ -40,7 +40,7 @@ include ("header.php");
 				$fname=$row[3];
 				$sap_id=$row[4];
 				$email=$row[5];
-				$content.= '<tr><td>'.$counter.'</td><td>'.$surname.'</td><td>'.$name.'</td><td>'.$fname.'</td><td><a href="show_user.php?id='.$rec_id.'">'.$sap_id.'</a></td><td>'.$email.'</td></tr>';
+				$content.= '<tr><td>'.$counter.'</td><td>'.$surname.'</td><td>'.$name.'</td><td>'.$fname.'</td><td>'.$sap_id.'</td><td><a href="show_user.php?id='.$rec_id.'">'.$email.'</a></td></tr>';
 				
 			$counter+=1;
 			

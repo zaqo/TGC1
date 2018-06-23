@@ -66,39 +66,7 @@ include ("header.php");
 			}
 		}
 		else echo "NOT FOR END USERS. TESTING ONLY!!!";
-	//var_dump($timestamp);
-	/*
-	while(!feof($fp)) {
-		$in= fgets($fp);
-		$in_=iconv('windows-1251','utf-8',$in);
-		$in__=explode(";",$in_);
-	
-		$fio=explode(" ",$in__[3]);
-		
-		echo $in__[0].'<br/>';
-		echo $fio[0].'-'.$fio[1].'-'.$fio[2];
-		echo $in__[13].'<br/>';
-		
-		$transfer_mysql='INSERT INTO user
-					(name,surname,father_name,email) 
-					VALUES
-					("'.$fio[1].'","'.$fio[0].'","'.$fio[2].'","'.$in__[13].'")';
-								
-		$answsqlnext=mysqli_query($db_server,$transfer_mysql);
-							
-		if(!$answsqlnext) die("INSERT into TABLE failed: ".mysqli_error($db_server));
-		$last_id=mysqli_insert_id($db_server);
-		$sap_mysql='INSERT INTO sap
-					(user_id,sap_id) 
-					VALUES
-					("'.$last_id.'","'.$in__[0].'")';
-								
-	$answsqlnext=mysqli_query($db_server,$sap_mysql);
-							
-	if(!$answsqlnext) die("INSERT into TABLE failed: ".mysqli_error($db_server));
-	
-	
-	}*/
+	mysqli_close($db_server);
 	
 	fclose($fp);
 ?>
