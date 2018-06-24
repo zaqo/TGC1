@@ -47,8 +47,10 @@
 					$answsqlprof=mysqli_query($db_server,$check_profiles);
 					if(!$answsqlprof) die("LOOKUP into profile_reg TABLE failed: ".mysqli_error($db_server));
 		$content_d= '';
+		//$content_d.= '<div class="container">';
 		$content_d.= '<div class="col-sm-6">';
 		$content_d.= '<div class="card mt-5 mr-5 border-light" style="max-width: 50rem;" >';
+		$content_d.= '<div class="card-header">Доступны в системе:</div>';
 		$content_d.= '<div class="card-body collapse" id="Toggle">';
 		
 
@@ -64,15 +66,15 @@
 			
 				$pro_name=$row[0];
 				$pro_desc=$row[1];
-				$content_d.='<li class="list-group-item">'.$counter.'. <span class="discount">'.$pro_name.'</span>  <br/> '.$pro_desc.'  </li>';
+				$content_d.='<li class="list-group-item">'.$counter.'. <span class="available">'.$pro_name.'</span>  <br/> '.$pro_desc.'  </li>';
 				$counter+=1;
 		
 		}
 		
 		$content_d.='</ul>';
 		
-	
-		$content_d.= '</div>';
+		//$content_d.= '</div>';
+		//$content_d.= '</div>';
 		$content_d.= '</div>';
 		$content_d.= '</div>'; //COLUMN END
 	// ORDERED
@@ -84,8 +86,9 @@
 					$answsqlprof=mysqli_query($db_server,$check_profiles_o);
 					if(!$answsqlprof) die("LOOKUP into profile_reg TABLE failed: ".mysqli_error($db_server));
 		//$content_d= '';
-		$content_d.= '<div class="col-sm-6">';
+		//$content_d.= '<div class="col-sm-6">';
 		$content_d.= '<div class="card mt-5 mr-5 border-light" style="max-width: 50rem;" >';
+		 $content_d.= '<div class="card-header">Заказаны:</div>';
 		$content_d.= '<div class="card-body collapse" id="Toggle_o">';
 		
 
@@ -101,7 +104,7 @@
 			
 				$pro_name=$row[0];
 				$pro_desc=$row[1];
-				$content_d.='<li class="list-group-item">'.$counter_o.'. <span class="discount">'.$pro_name.'</span>  <br/> '.$pro_desc.'  </li>';
+				$content_d.='<li class="list-group-item">'.$counter_o.'. <span class="applied">'.$pro_name.'</span>  <br/> '.$pro_desc.'  </li>';
 				$counter_o+=1;
 		
 		}

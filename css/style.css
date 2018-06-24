@@ -275,7 +275,20 @@ span.discount {
 	font-size: 1em;
 	text-shadow: 1px 1px 0 rgba(0,0,0,.3);
 }
-
+/*PROFILES */
+span.available {
+	color: green;
+	
+	font-family: arial, cursive;
+	font-size: 1em;
+	text-shadow: 1px 1px 0 rgba(0,0,0,.3);
+}
+span.applied {
+	color: blue;
+	font-family: arial, cursive;
+	font-size: 1em;
+	text-shadow: 1px 1px 0 rgba(0,0,0,.3);
+}
 /* RADIO BUTTONS*/
 .dark { background-color: #4c6271; width:200px; font-size: 80%; border: 1px solid #0846cb; }
 .light { background-color: #fff; text-align: center; }

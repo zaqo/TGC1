@@ -63,7 +63,7 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="users">
 										<a class="dropdown-item " href="show_users.php" title="Users">Перечень</a>
-										<a class="dropdown-item " href="show_users_prof.php" title="Users">Перечень & Профили</a>
+										<a class="dropdown-item " href="search_profile.php" title="Search">Права доступа</a>
 									</div>
 								</li>
 								<li class="nav-item dropdown">
