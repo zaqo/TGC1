@@ -31,7 +31,7 @@ $db_server = mysqli_connect($db_hostname, $db_username,$db_password);
 			//PROFIT CENTER SELECT
 			$select_pc='<SELECT name="pc" id="pc" class="form-control" >';
 			$select_pc.='<option selected value="" disabled /> ..выберите.. </option>';
-			$check_pc='SELECT code, short_desc
+			$check_pc='SELECT code, short_desc, id
 							FROM profit_center
 							WHERE 1';
 					
@@ -40,7 +40,7 @@ $db_server = mysqli_connect($db_hostname, $db_username,$db_password);
 			while($row=mysqli_fetch_row($answsql1))
 			{
 				//$desc_abb=mb_substr($row[2],0,50,$enc=mb_internal_encoding());
-				$select_pc.='<option value="'.$row[0].'">'.$row[0].' | '.$row[1].'</option>';
+				$select_pc.='<option value="'.$row[2].'">'.$row[0].' | '.$row[1].'</option>';
 			}
 			$select_pc.='</select>';
 ?>

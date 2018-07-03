@@ -58,7 +58,7 @@
 						<div class="navbar-nav-scroll">
 							<ul class="navbar-nav bd-navbar-nav flex-row">
 								<li class="nav-item dropdown">
-									<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="exchange" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="users" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 										Пользователи
 									</a>
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="users">
@@ -67,7 +67,7 @@
 									</div>
 								</li>
 								<li class="nav-item dropdown">
-									<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="exchange" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="transactions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 										Транзакции
 									</a>
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="transactions">
@@ -75,6 +75,15 @@
 										<a class="dropdown-item " href="show_trs.php" title="List">Перечень</a>
 										<a class="dropdown-item " href="show_trn_log.php" title="All">Отчет</a>
 										
+									</div>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-item nav-link dropdown-toggle mr-md-2" href="#" id="costs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+										Моделирование
+									</a>
+									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="costs">
+										<a class="dropdown-item " href="info.php" title="info">Справка</a>
+										<a class="dropdown-item " href="select_shpz.php" title="model">ШПЗ -> ПФМ/Фин.позиция</a>
 									</div>
 								</li>
 							</ul>

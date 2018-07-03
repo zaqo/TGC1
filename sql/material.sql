@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Июн 19 2018 г., 15:32
+-- Время создания: Июл 04 2018 г., 00:42
 -- Версия сервера: 10.1.31-MariaDB
 -- Версия PHP: 7.2.4
 
@@ -39294,7 +39294,7 @@ ALTER TABLE `material`
 -- AUTO_INCREMENT для таблицы `material`
 --
 ALTER TABLE `material`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259263;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220092;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
