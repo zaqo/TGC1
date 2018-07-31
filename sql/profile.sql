@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Июн 25 2018 г., 08:04
+-- Время создания: Июл 31 2018 г., 08:32
 -- Версия сервера: 10.1.31-MariaDB
 -- Версия PHP: 7.2.4
 
@@ -3474,7 +3474,8 @@ INSERT INTO `profile` (`id`, `name`, `description`, `isBW`, `isValid`) VALUES
 (3429, 'ZUBI000_SPD44011', 'Формирование. ЭСД. ЦО D44011', 1, 1),
 (3430, 'ZUBI000_SPD46108', 'Формирование. ЭСД. ЦО D46108', 1, 1),
 (3431, 'ZUBI000_SPD46110', 'Формирование. ЭСД. ЦО D46110', 1, 1),
-(3432, 'ZUBI000_SPD46111', 'Формирование. ЭСД. ЦО D46111', 1, 1);
+(3432, 'ZUBI000_SPD46111', 'Формирование. ЭСД. ЦО D46111', 1, 1),
+(3433, '', '', 1, 0);
 
 --
 -- Индексы сохранённых таблиц
@@ -3494,7 +3495,7 @@ ALTER TABLE `profile`
 -- AUTO_INCREMENT для таблицы `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3433;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3434;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -62,7 +62,7 @@
 										Пользователи
 									</a>
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="users">
-										<a class="dropdown-item " href="show_users.php" title="Users">Перечень</a>
+										<a class="dropdown-item " href="main.php?command=list" title="Users">Перечень</a>
 										<a class="dropdown-item " href="search_profile.php" title="Search">Права доступа</a>
 									</div>
 								</li>
@@ -72,8 +72,8 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="transactions">
 										<!--<a class="dropdown-item " href="loader_actions.php" title="test">Test</a>-->
-										<a class="dropdown-item " href="show_trs.php" title="List">Перечень</a>
-										<a class="dropdown-item " href="show_trn_log.php" title="All">Отчет</a>
+										<a class="dropdown-item " href="main.php?command=trs_all" title="List">Перечень</a>
+										<a class="dropdown-item " href="main.php?command=trs_log" title="All">Отчет</a>
 										
 									</div>
 								</li>
@@ -83,7 +83,7 @@
 									</a>
 									<div class="dropdown-menu dropdown-menu-right" aria-labelledby="costs">
 										<a class="dropdown-item " href="info.php" title="info">Справка</a>
-										<a class="dropdown-item " href="select_shpz.php" title="model">ШПЗ -> ПФМ/Фин.позиция</a>
+										<a class="dropdown-item " href="main.php?command=shpz" title="model">ШПЗ -> ПФМ/Фин.позиция</a>
 									</div>
 								</li>
 							</ul>

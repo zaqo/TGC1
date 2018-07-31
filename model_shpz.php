@@ -1,4 +1,4 @@
-﻿ <?php require_once 'login_tgc1.php';
+﻿ <?php 
 /*
  VIEW FOR COST TYPES 
 	
@@ -6,6 +6,7 @@
 	02/07/18
 	(c) 2018 TGC-1 project
 */
+	require_once 'login_tgc1.php';
 	include ("header.php"); 
 	
 		$id= $_REQUEST['shpz'];
